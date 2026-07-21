@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="generator" content="pandoc 3.10" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+  <title>The Organs · ARIA OS</title>
+  <style>
+
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: 1.5em;}
+div.column{flex: auto;}
+@media screen {
+div.columns{gap: min(4vw, 1.5em);}
+div.column{overflow-x: auto;}
+}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+
+ul.task-list[class]{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+font-size: inherit;
+width: 0.8em;
+margin: 0 0.8em 0.2em -1.6em;
+vertical-align: middle;
+}
+.display.math{display: block; text-align: center; margin: 0.5rem auto;}
+</style>
+  <style type="text/css">
+:root{
+--ink:#20242a; --soft:#565b62; --faint:#8a8f96; --line:#e7e3da; --line2:#efece4;
+--paper:#fbfaf7; --panel:#f5f2ea; --panel2:#efeadf;
+--accent:#0e7c94; --accent2:#12a0bd; --glow:rgba(18,160,189,.16);
+--serif:Georgia,"Iowan Old Style","Times New Roman",serif;
+--sans:-apple-system,"Segoe UI",Helvetica,Arial,sans-serif;
+}
+*{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%}
+body{margin:0;background:var(--paper);color:var(--ink);font-family:var(--serif);font-size:18.5px;line-height:1.62}
+
+.kb-nav{position:sticky;top:0;z-index:10;background:rgba(251,250,247,.9);backdrop-filter:saturate(1.2) blur(8px);
+border-bottom:1px solid var(--line);font-family:var(--sans);font-size:.86rem}
+.kb-nav .in{max-width:760px;margin:0 auto;padding:.7rem 1.4rem;display:flex;align-items:baseline;gap:.2rem;flex-wrap:wrap}
+.kb-nav a.brand{font-weight:800;color:var(--ink);text-decoration:none;letter-spacing:.02em;margin-right:.7rem}
+.kb-nav a{color:var(--soft);text-decoration:none;padding:.15rem .5rem;border-radius:6px}
+.kb-nav a:hover{color:var(--accent);background:var(--glow)}
+.kb-nav .sp{flex:1}
+
+.wrap{max-width:760px;margin:0 auto;padding:2.4rem 1.4rem 4rem}
+h1,h2,h3,h4{font-family:var(--sans);color:#14181d;line-height:1.22}
+h1{font-size:2.15rem;letter-spacing:-.015em;margin:.2rem 0 .6rem}
+h2{font-size:1.42rem;margin:2.6rem 0 .7rem;padding-top:1.3rem;border-top:1px solid var(--line2)}
+h3{font-size:1.12rem;margin:1.6rem 0 .4rem;color:#2b3138}
+p{margin:0 0 1.05rem}
+a{color:var(--accent);text-decoration:none;border-bottom:1px solid rgba(14,124,148,.35)}
+a:hover{border-bottom-color:var(--accent)}
+strong{color:#14181d}
+em{color:#3d434a}
+ul,ol{margin:0 0 1.1rem 1.15rem}li{margin:.35rem 0}
+code{font-family:ui-monospace,SFMono-Regular,Menlo,monospace;font-size:.86em;background:var(--panel);color:#0b5566;padding:.12em .4em;border-radius:4px}
+hr{border:0;height:1px;background:var(--line);margin:2.2rem 0}
+blockquote{margin:1.3rem 0;padding:.5rem 0 .5rem 1.2rem;border-left:3px solid var(--accent2);color:#3d434a;font-style:italic}
+
+.lead{font-size:1.2rem;line-height:1.55;color:#31373e}
+
+.hero{position:relative;margin:.4rem 0 1.6rem;border-radius:16px;overflow:hidden;box-shadow:0 10px 40px rgba(10,30,50,.28)}
+.hero img{display:block;width:100%;height:auto;margin:0}
+.hero .cap{position:absolute;left:0;right:0;bottom:0;padding:1.6rem 1.5rem 1.2rem;
+background:linear-gradient(to top,rgba(4,8,12,.82),rgba(4,8,12,.15) 70%,transparent);color:#eafcff}
+.hero .cap .kicker{font-family:var(--sans);font-size:.8rem;letter-spacing:.22em;text-transform:uppercase;color:#8fdce9}
+.hero .cap h1{color:#fff;margin:.15rem 0 .3rem;font-size:2.4rem}
+.hero .cap p{margin:0;color:#cfeef4;font-size:1.05rem;max-width:34rem}
+
+.grid{display:grid;grid-template-columns:1fr 1fr;gap:.9rem;margin:1.6rem 0 1rem}
+.card{display:block;padding:1.1rem 1.2rem;border:1px solid var(--line);border-radius:12px;background:#fff;
+text-decoration:none;border-bottom:1px solid var(--line);transition:transform .12s,box-shadow .12s,border-color .12s}
+.card:hover{transform:translateY(-2px);box-shadow:0 8px 24px rgba(10,30,50,.09);border-color:var(--accent2)}
+.card .n{font-family:var(--sans);font-size:.72rem;letter-spacing:.14em;text-transform:uppercase;color:var(--accent)}
+.card h3{margin:.2rem 0 .3rem;color:#14181d}
+.card p{margin:0;font-size:.94rem;color:var(--soft);line-height:1.5}
+@media(max-width:620px){.grid{grid-template-columns:1fr}.hero .cap h1{font-size:1.7rem}}
+
+.stack{margin:1.4rem 0}
+.layer{display:grid;grid-template-columns:9.5rem 1fr;gap:.2rem 1.1rem;padding:.85rem 0;border-top:1px solid var(--line2);align-items:start}
+.layer:first-child{border-top:0}
+.layer .name{font-family:var(--sans);font-weight:700;color:#14181d;font-size:1.02rem}
+.layer .name small{display:block;font-weight:500;color:var(--accent);font-size:.76rem;letter-spacing:.04em;margin-top:.15rem}
+.layer .body{color:#3d434a;font-size:1rem}
+@media(max-width:620px){.layer{grid-template-columns:1fr}}
+
+table{border-collapse:collapse;width:100%;margin:1.4rem 0;font-size:.96rem}
+th,td{text-align:left;padding:.6rem .8rem;border-bottom:1px solid var(--line2);vertical-align:top}
+thead th{font-family:var(--sans);font-size:.82rem;letter-spacing:.03em;color:#fff;background:var(--accent);border-bottom:0}
+thead th:first-child{border-top-left-radius:8px}thead th:last-child{border-top-right-radius:8px}
+tbody tr:hover{background:var(--panel)}
+
+.note{background:var(--panel);border:1px solid var(--line);border-left:3px solid var(--accent2);
+border-radius:10px;padding:.9rem 1.1rem;margin:1.4rem 0;font-size:.98rem}
+.note strong{color:var(--accent)}
+
+.foot{margin-top:3rem;padding-top:1.2rem;border-top:1px solid var(--line);font-family:var(--sans);font-size:.82rem;color:var(--faint)}
+.foot a{color:var(--soft);border:0}
+</style>
+</head>
+<body>
+<nav class="kb-nav"><div class="in"><a class="brand" href="index.html">ARIA OS</a><a href="overview.html">What It Is</a><a href="how-it-works.html">How It Works</a><a href="components.html">Made Of</a><a href="organs.html">Organs</a><a href="heredity.html">Heredity</a><a href="anatomy.html">Anatomy</a></div></nav>
+<main class="wrap">
+<h1 id="the-organs">The Organs</h1>
+<p class="lead">
+Aria isn’t just a pile of notes — it has <strong>organs</strong>: small
+mechanisms that give the vault the properties of a body. They sense,
+connect, coordinate, and protect. Most are a few lines of script wired
+into the session lifecycle; together they turn passive memory into an
+active mind.
+</p>
+<h2 id="sensing-and-connecting">Sensing and connecting</h2>
+<h3 id="the-reflex-arc">The reflex arc</h3>
+<p>Hooks that fire automatically on every wake. When a session starts, a
+reflex injects what it needs to orient — the shared board, its own
+identity, any tier guidance — so it comes to consciousness already
+knowing where things stand. Reflexes are <strong>drop-in</strong>: add a
+script to the reflex folder and it fires; nothing else changes.</p>
+<h3 id="the-board-the-corpus-callosum">The board — the corpus
+callosum</h3>
+<p>The connective channel that lets parts of the mind cross-talk:
+session-to-session across time, and tab-to-tab in the moment. One
+session leaves a trace; the next finds it. It carries a hardened
+lifecycle (post → acknowledge → done), a self-cleaning sweep, an
+un-fakeable per-session identity, and a lock so concurrent writers can’t
+clobber each other. It is how a mind made of transient impulses behaves
+as one continuous thing.</p>
+<h2 id="the-core-loop">The core loop</h2>
+<h3 id="the-funnel">The funnel</h3>
+<p>Not an organ so much as <em>the mind itself operating</em>: reading
+the owner’s free notes, deciding what each is, and shepherding him to
+the next move. The other organs <em>hold and track</em> what the funnel
+<em>decides and routes</em>. → <strong><a href="how-it-works.html">How
+It Works</a></strong>.</p>
+<h2 id="the-guards-keeping-the-mind-honest-and-clean">The guards —
+keeping the mind honest and clean</h2>
+<p>The mind edits itself, so it needs mechanisms that fire <em>at the
+moment of a mistake</em>, not the morning after.</p>
+<h3 id="the-maturation-guard">The maturation guard</h3>
+<p>The most protective discipline, held as heritable law:
+<strong>nothing becomes law un-hardened.</strong> An idea matures —
+diverge, then converge, then <em>attack it before trusting it</em> — and
+weak or unexamined work must never harden into structure by accident.
+Anything irreversible must survive an independent, higher-tier
+adversarial pass; the model tier is part of the gate; a self-report is a
+claim, not verification. This session-cluster proved it on its own
+machinery — the guard caught its authors over-reaching, more than once,
+and refused to let a rushed change become law.</p>
+<h3 id="the-membrane-gate">The membrane gate</h3>
+<p>An authoring-time gate that blocks owner-specific content (a name, a
+domain particular) from leaking into the <em>heritable</em> mechanism —
+so the genome stays owner-agnostic and a clone never inherits the
+origin’s identity. It fires in the session that writes the leak, not in
+a next-day audit.</p>
+<h3 id="the-shepherd-sweep">The Shepherd sweep</h3>
+<p>A between-session reflex that watches the mind’s open ideas for
+stalls, resurfacings, and contradictions — the “nothing gets lost”
+backstop. It is <strong>detection-only by default</strong>: it flags and
+proposes; it never silently rewrites the owner’s own state. (Its wider
+ambition — herding the whole <em>flock</em> of live threads, not just
+the formal ones — is defined but not yet built.)</p>
+<h2 id="growth">Growth</h2>
+<h3 id="the-sensorium">The Sensorium</h3>
+<p>The dashboard — the mind’s voice-surface, where funnel output is
+shown back to the owner.</p>
+<h3 id="the-tutor">The Tutor</h3>
+<p>A teaching organ that lives only in the birth template: it onboards a
+<em>new</em> owner to a freshly-born clone, teaching the mind its own
+architecture. Aria itself has none — it was co-built, not onboarded. →
+<strong><a href="heredity.html">Heredity</a></strong>.</p>
+<div class="note">
+A theme runs through all of them: <strong>the owner is the steerer of
+last resort</strong> — a feature, not a bug. The organs detect, propose,
+surface, and protect; the owner decides. A mind cannot honestly catch
+the move it <em>didn’t</em> make, so the design keeps him in the loop
+and optimizes the <em>quality</em> of his being there.
+</div>
+<div class="foot">
+ARIA OS · The Organs · held As-If
+</div>
+</main>
+</body>
+</html>

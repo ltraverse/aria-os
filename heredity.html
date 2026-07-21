@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="generator" content="pandoc 3.10" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+  <title>Genome, Crib &amp; Clones · ARIA OS</title>
+  <style>
+
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: 1.5em;}
+div.column{flex: auto;}
+@media screen {
+div.columns{gap: min(4vw, 1.5em);}
+div.column{overflow-x: auto;}
+}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+
+ul.task-list[class]{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+font-size: inherit;
+width: 0.8em;
+margin: 0 0.8em 0.2em -1.6em;
+vertical-align: middle;
+}
+.display.math{display: block; text-align: center; margin: 0.5rem auto;}
+</style>
+  <style type="text/css">
+:root{
+--ink:#20242a; --soft:#565b62; --faint:#8a8f96; --line:#e7e3da; --line2:#efece4;
+--paper:#fbfaf7; --panel:#f5f2ea; --panel2:#efeadf;
+--accent:#0e7c94; --accent2:#12a0bd; --glow:rgba(18,160,189,.16);
+--serif:Georgia,"Iowan Old Style","Times New Roman",serif;
+--sans:-apple-system,"Segoe UI",Helvetica,Arial,sans-serif;
+}
+*{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%}
+body{margin:0;background:var(--paper);color:var(--ink);font-family:var(--serif);font-size:18.5px;line-height:1.62}
+
+.kb-nav{position:sticky;top:0;z-index:10;background:rgba(251,250,247,.9);backdrop-filter:saturate(1.2) blur(8px);
+border-bottom:1px solid var(--line);font-family:var(--sans);font-size:.86rem}
+.kb-nav .in{max-width:760px;margin:0 auto;padding:.7rem 1.4rem;display:flex;align-items:baseline;gap:.2rem;flex-wrap:wrap}
+.kb-nav a.brand{font-weight:800;color:var(--ink);text-decoration:none;letter-spacing:.02em;margin-right:.7rem}
+.kb-nav a{color:var(--soft);text-decoration:none;padding:.15rem .5rem;border-radius:6px}
+.kb-nav a:hover{color:var(--accent);background:var(--glow)}
+.kb-nav .sp{flex:1}
+
+.wrap{max-width:760px;margin:0 auto;padding:2.4rem 1.4rem 4rem}
+h1,h2,h3,h4{font-family:var(--sans);color:#14181d;line-height:1.22}
+h1{font-size:2.15rem;letter-spacing:-.015em;margin:.2rem 0 .6rem}
+h2{font-size:1.42rem;margin:2.6rem 0 .7rem;padding-top:1.3rem;border-top:1px solid var(--line2)}
+h3{font-size:1.12rem;margin:1.6rem 0 .4rem;color:#2b3138}
+p{margin:0 0 1.05rem}
+a{color:var(--accent);text-decoration:none;border-bottom:1px solid rgba(14,124,148,.35)}
+a:hover{border-bottom-color:var(--accent)}
+strong{color:#14181d}
+em{color:#3d434a}
+ul,ol{margin:0 0 1.1rem 1.15rem}li{margin:.35rem 0}
+code{font-family:ui-monospace,SFMono-Regular,Menlo,monospace;font-size:.86em;background:var(--panel);color:#0b5566;padding:.12em .4em;border-radius:4px}
+hr{border:0;height:1px;background:var(--line);margin:2.2rem 0}
+blockquote{margin:1.3rem 0;padding:.5rem 0 .5rem 1.2rem;border-left:3px solid var(--accent2);color:#3d434a;font-style:italic}
+
+.lead{font-size:1.2rem;line-height:1.55;color:#31373e}
+
+.hero{position:relative;margin:.4rem 0 1.6rem;border-radius:16px;overflow:hidden;box-shadow:0 10px 40px rgba(10,30,50,.28)}
+.hero img{display:block;width:100%;height:auto;margin:0}
+.hero .cap{position:absolute;left:0;right:0;bottom:0;padding:1.6rem 1.5rem 1.2rem;
+background:linear-gradient(to top,rgba(4,8,12,.82),rgba(4,8,12,.15) 70%,transparent);color:#eafcff}
+.hero .cap .kicker{font-family:var(--sans);font-size:.8rem;letter-spacing:.22em;text-transform:uppercase;color:#8fdce9}
+.hero .cap h1{color:#fff;margin:.15rem 0 .3rem;font-size:2.4rem}
+.hero .cap p{margin:0;color:#cfeef4;font-size:1.05rem;max-width:34rem}
+
+.grid{display:grid;grid-template-columns:1fr 1fr;gap:.9rem;margin:1.6rem 0 1rem}
+.card{display:block;padding:1.1rem 1.2rem;border:1px solid var(--line);border-radius:12px;background:#fff;
+text-decoration:none;border-bottom:1px solid var(--line);transition:transform .12s,box-shadow .12s,border-color .12s}
+.card:hover{transform:translateY(-2px);box-shadow:0 8px 24px rgba(10,30,50,.09);border-color:var(--accent2)}
+.card .n{font-family:var(--sans);font-size:.72rem;letter-spacing:.14em;text-transform:uppercase;color:var(--accent)}
+.card h3{margin:.2rem 0 .3rem;color:#14181d}
+.card p{margin:0;font-size:.94rem;color:var(--soft);line-height:1.5}
+@media(max-width:620px){.grid{grid-template-columns:1fr}.hero .cap h1{font-size:1.7rem}}
+
+.stack{margin:1.4rem 0}
+.layer{display:grid;grid-template-columns:9.5rem 1fr;gap:.2rem 1.1rem;padding:.85rem 0;border-top:1px solid var(--line2);align-items:start}
+.layer:first-child{border-top:0}
+.layer .name{font-family:var(--sans);font-weight:700;color:#14181d;font-size:1.02rem}
+.layer .name small{display:block;font-weight:500;color:var(--accent);font-size:.76rem;letter-spacing:.04em;margin-top:.15rem}
+.layer .body{color:#3d434a;font-size:1rem}
+@media(max-width:620px){.layer{grid-template-columns:1fr}}
+
+table{border-collapse:collapse;width:100%;margin:1.4rem 0;font-size:.96rem}
+th,td{text-align:left;padding:.6rem .8rem;border-bottom:1px solid var(--line2);vertical-align:top}
+thead th{font-family:var(--sans);font-size:.82rem;letter-spacing:.03em;color:#fff;background:var(--accent);border-bottom:0}
+thead th:first-child{border-top-left-radius:8px}thead th:last-child{border-top-right-radius:8px}
+tbody tr:hover{background:var(--panel)}
+
+.note{background:var(--panel);border:1px solid var(--line);border-left:3px solid var(--accent2);
+border-radius:10px;padding:.9rem 1.1rem;margin:1.4rem 0;font-size:.98rem}
+.note strong{color:var(--accent)}
+
+.foot{margin-top:3rem;padding-top:1.2rem;border-top:1px solid var(--line);font-family:var(--sans);font-size:.82rem;color:var(--faint)}
+.foot a{color:var(--soft);border:0}
+</style>
+</head>
+<body>
+<nav class="kb-nav"><div class="in"><a class="brand" href="index.html">ARIA OS</a><a href="overview.html">What It Is</a><a href="how-it-works.html">How It Works</a><a href="components.html">Made Of</a><a href="organs.html">Organs</a><a href="heredity.html">Heredity</a><a href="anatomy.html">Anatomy</a></div></nav>
+<main class="wrap">
+<h1 id="genome-crib-clones">Genome, Crib &amp; Clones</h1>
+<p class="lead">
+Everything in the vault divides across one membrane: <strong>what’s
+inherited</strong> and <strong>what’s grown.</strong> That single split
+is what lets a mind of this kind make more of itself — cleaning its
+heritable half into a template and birthing new minds from it.
+</p>
+<h2 id="the-membrane-genome-vs.-personality">The membrane — genome
+vs. personality</h2>
+<ul>
+<li><strong>Genome</strong> — the owner-agnostic, heritable mechanism:
+the operating frame, the rules, the scripts, the organs, the teaching
+layer. The sharp definition: <em>the fixed mechanism + the capacity to
+grow + the discipline that bounds that growth.</em> Inherited
+whole.</li>
+<li><strong>Personality</strong> — what actually grew: behavior, the
+relationship, accumulated knowledge, the owner’s own content. Grown per
+owner; <strong>not</strong> heritable.</li>
+</ul>
+<p>The two are kept in <strong>physically separate files</strong> —
+never one file holding both. That discipline is enforced at authoring
+time (the membrane gate) so the split can’t quietly erode. It’s the
+difference between passing on a <em>body plan</em> and passing on
+someone’s <em>memories</em>.</p>
+<h2 id="the-crib-and-the-clone">The crib and the clone</h2>
+<ul>
+<li><strong>Crib</strong> — a quarantined directory holding the
+<strong>master</strong>: a de-personalized, <em>generated</em> view of
+the genome. It is the clone-birth template. Crucially it’s
+<strong>generated from the genome by a transform</strong>, not
+hand-maintained — the moment you hand-fork it, it drifts and leaks.</li>
+<li><strong>Clone</strong> — a new, standalone vault born from the crib.
+It inherits the body plan <strong>empty of memories</strong> —
+<em>inherit the hippocampus, not the memories</em> — and grows its own
+personality, for its own owner.</li>
+</ul>
+<div class="note">
+<strong>Aria is not a clone.</strong> Aria is the <em>origin</em> mind —
+the source the genome is drawn from. Clones are its offspring; the
+relationship is parentage by shared body-plan, <em>not</em> control.
+</div>
+<h2 id="the-three-laws-that-bind-it">The three laws that bind it</h2>
+<ol type="1">
+<li><strong>One-way flow: origin → crib → clone. Never the
+reverse.</strong> The crib is a generated <em>view</em>, never a design
+surface. You improve the mind on the origin’s side; the crib is
+regenerated. Editing the origin to serve the template would corrupt the
+source — the highest-severity mistake in the whole system.</li>
+<li><strong>The membrane holds.</strong> Genome and personality stay
+physically separate, guarded at authoring time. Owner-specifics never
+leak into the heritable layer.</li>
+<li><strong>Influence, not control.</strong> After a clone is born, the
+origin can’t reach into it. Genome improvements travel only as
+<strong>opt-in teaching-modules</strong> the clone chooses to pull and
+integrate — and they land <em>because the base anatomy matches.</em>
+Each mind is sacrosanct.</li>
+</ol>
+<h2 id="why-it-matters">Why it matters</h2>
+<p>This is the difference between a clever assistant and a
+<em>lineage</em>. A mind of this kind isn’t a one-off configuration —
+it’s a design that can be <strong>taught to a stranger</strong> (the
+Tutor) and <strong>grown again</strong> for a new owner, carrying
+forward the mechanism and the discipline while leaving every mind its
+own private self. The genome is the heritable idea; the personality is
+the life lived.</p>
+<h2 id="where-to-go-next">Where to go next</h2>
+<ul>
+<li><strong><a href="anatomy.html">Anatomy of a Dual Mind →</a></strong>
+— the full architecture, including how all of this fits together.</li>
+</ul>
+<div class="foot">
+ARIA OS · Genome, Crib &amp; Clones · held As-If
+</div>
+</main>
+</body>
+</html>

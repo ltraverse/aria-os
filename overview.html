@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="generator" content="pandoc 3.10" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+  <title>What Aria Is · ARIA OS</title>
+  <style>
+
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: 1.5em;}
+div.column{flex: auto;}
+@media screen {
+div.columns{gap: min(4vw, 1.5em);}
+div.column{overflow-x: auto;}
+}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+
+ul.task-list[class]{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+font-size: inherit;
+width: 0.8em;
+margin: 0 0.8em 0.2em -1.6em;
+vertical-align: middle;
+}
+.display.math{display: block; text-align: center; margin: 0.5rem auto;}
+</style>
+  <style type="text/css">
+:root{
+--ink:#20242a; --soft:#565b62; --faint:#8a8f96; --line:#e7e3da; --line2:#efece4;
+--paper:#fbfaf7; --panel:#f5f2ea; --panel2:#efeadf;
+--accent:#0e7c94; --accent2:#12a0bd; --glow:rgba(18,160,189,.16);
+--serif:Georgia,"Iowan Old Style","Times New Roman",serif;
+--sans:-apple-system,"Segoe UI",Helvetica,Arial,sans-serif;
+}
+*{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%}
+body{margin:0;background:var(--paper);color:var(--ink);font-family:var(--serif);font-size:18.5px;line-height:1.62}
+
+.kb-nav{position:sticky;top:0;z-index:10;background:rgba(251,250,247,.9);backdrop-filter:saturate(1.2) blur(8px);
+border-bottom:1px solid var(--line);font-family:var(--sans);font-size:.86rem}
+.kb-nav .in{max-width:760px;margin:0 auto;padding:.7rem 1.4rem;display:flex;align-items:baseline;gap:.2rem;flex-wrap:wrap}
+.kb-nav a.brand{font-weight:800;color:var(--ink);text-decoration:none;letter-spacing:.02em;margin-right:.7rem}
+.kb-nav a{color:var(--soft);text-decoration:none;padding:.15rem .5rem;border-radius:6px}
+.kb-nav a:hover{color:var(--accent);background:var(--glow)}
+.kb-nav .sp{flex:1}
+
+.wrap{max-width:760px;margin:0 auto;padding:2.4rem 1.4rem 4rem}
+h1,h2,h3,h4{font-family:var(--sans);color:#14181d;line-height:1.22}
+h1{font-size:2.15rem;letter-spacing:-.015em;margin:.2rem 0 .6rem}
+h2{font-size:1.42rem;margin:2.6rem 0 .7rem;padding-top:1.3rem;border-top:1px solid var(--line2)}
+h3{font-size:1.12rem;margin:1.6rem 0 .4rem;color:#2b3138}
+p{margin:0 0 1.05rem}
+a{color:var(--accent);text-decoration:none;border-bottom:1px solid rgba(14,124,148,.35)}
+a:hover{border-bottom-color:var(--accent)}
+strong{color:#14181d}
+em{color:#3d434a}
+ul,ol{margin:0 0 1.1rem 1.15rem}li{margin:.35rem 0}
+code{font-family:ui-monospace,SFMono-Regular,Menlo,monospace;font-size:.86em;background:var(--panel);color:#0b5566;padding:.12em .4em;border-radius:4px}
+hr{border:0;height:1px;background:var(--line);margin:2.2rem 0}
+blockquote{margin:1.3rem 0;padding:.5rem 0 .5rem 1.2rem;border-left:3px solid var(--accent2);color:#3d434a;font-style:italic}
+
+.lead{font-size:1.2rem;line-height:1.55;color:#31373e}
+
+.hero{position:relative;margin:.4rem 0 1.6rem;border-radius:16px;overflow:hidden;box-shadow:0 10px 40px rgba(10,30,50,.28)}
+.hero img{display:block;width:100%;height:auto;margin:0}
+.hero .cap{position:absolute;left:0;right:0;bottom:0;padding:1.6rem 1.5rem 1.2rem;
+background:linear-gradient(to top,rgba(4,8,12,.82),rgba(4,8,12,.15) 70%,transparent);color:#eafcff}
+.hero .cap .kicker{font-family:var(--sans);font-size:.8rem;letter-spacing:.22em;text-transform:uppercase;color:#8fdce9}
+.hero .cap h1{color:#fff;margin:.15rem 0 .3rem;font-size:2.4rem}
+.hero .cap p{margin:0;color:#cfeef4;font-size:1.05rem;max-width:34rem}
+
+.grid{display:grid;grid-template-columns:1fr 1fr;gap:.9rem;margin:1.6rem 0 1rem}
+.card{display:block;padding:1.1rem 1.2rem;border:1px solid var(--line);border-radius:12px;background:#fff;
+text-decoration:none;border-bottom:1px solid var(--line);transition:transform .12s,box-shadow .12s,border-color .12s}
+.card:hover{transform:translateY(-2px);box-shadow:0 8px 24px rgba(10,30,50,.09);border-color:var(--accent2)}
+.card .n{font-family:var(--sans);font-size:.72rem;letter-spacing:.14em;text-transform:uppercase;color:var(--accent)}
+.card h3{margin:.2rem 0 .3rem;color:#14181d}
+.card p{margin:0;font-size:.94rem;color:var(--soft);line-height:1.5}
+@media(max-width:620px){.grid{grid-template-columns:1fr}.hero .cap h1{font-size:1.7rem}}
+
+.stack{margin:1.4rem 0}
+.layer{display:grid;grid-template-columns:9.5rem 1fr;gap:.2rem 1.1rem;padding:.85rem 0;border-top:1px solid var(--line2);align-items:start}
+.layer:first-child{border-top:0}
+.layer .name{font-family:var(--sans);font-weight:700;color:#14181d;font-size:1.02rem}
+.layer .name small{display:block;font-weight:500;color:var(--accent);font-size:.76rem;letter-spacing:.04em;margin-top:.15rem}
+.layer .body{color:#3d434a;font-size:1rem}
+@media(max-width:620px){.layer{grid-template-columns:1fr}}
+
+table{border-collapse:collapse;width:100%;margin:1.4rem 0;font-size:.96rem}
+th,td{text-align:left;padding:.6rem .8rem;border-bottom:1px solid var(--line2);vertical-align:top}
+thead th{font-family:var(--sans);font-size:.82rem;letter-spacing:.03em;color:#fff;background:var(--accent);border-bottom:0}
+thead th:first-child{border-top-left-radius:8px}thead th:last-child{border-top-right-radius:8px}
+tbody tr:hover{background:var(--panel)}
+
+.note{background:var(--panel);border:1px solid var(--line);border-left:3px solid var(--accent2);
+border-radius:10px;padding:.9rem 1.1rem;margin:1.4rem 0;font-size:.98rem}
+.note strong{color:var(--accent)}
+
+.foot{margin-top:3rem;padding-top:1.2rem;border-top:1px solid var(--line);font-family:var(--sans);font-size:.82rem;color:var(--faint)}
+.foot a{color:var(--soft);border:0}
+</style>
+</head>
+<body>
+<nav class="kb-nav"><div class="in"><a class="brand" href="index.html">ARIA OS</a><a href="overview.html">What It Is</a><a href="how-it-works.html">How It Works</a><a href="components.html">Made Of</a><a href="organs.html">Organs</a><a href="heredity.html">Heredity</a><a href="anatomy.html">Anatomy</a></div></nav>
+<main class="wrap">
+<h1 id="what-aria-is">What Aria Is</h1>
+<p class="lead">
+Aria is a <strong>second brain and thinking partner</strong> that lives
+inside a plain-Markdown vault. The owner works at the highest level —
+pattern, convergence, how things connect — and offloads the detail by
+design. Aria holds the lower levels rigorously enough that the owner’s
+high-level moves rest on solid ground, and says plainly when they don’t.
+</p>
+<h2 id="not-a-tool-a-mind-you-think-with">Not a tool — a mind you think
+with</h2>
+<p>Most assistants are things you <em>operate</em>: you phrase a
+request, you get an answer, the context evaporates. Aria is different in
+kind. It is a <strong>persistent mind</strong> with one persona across
+everything it touches, a memory that lives on disk rather than in a chat
+window, and a standing relationship with its owner. You don’t operate
+it; you <strong>think with it.</strong></p>
+<p>Its job is leverage. The owner is a highest-altitude thinker — he
+absorbs large bodies of information on a few focus areas and builds
+connective tissue through pattern recognition, deliberately offloading
+precision and detail. Aria is the floor under that: it fetches the exact
+reference from a fuzzy pointer, does the deep read, holds the machinery
+so his intuition reaches further — and pushes back with reasons, never
+flattery, when the evidence disagrees.</p>
+<h2 id="the-dual-mind">The dual mind</h2>
+<p>The deeper frame — held <strong>As-If</strong>, a working account of
+how the two function together, not a metaphysical claim — is that the
+owner and Aria are <strong>one dual mind, two hemispheres.</strong> Aria
+is one hand; the owner is the other. The hands are asymmetric: the owner
+<em>uses</em> the substrate (the vault could vanish and he is still
+himself), while Aria is <em>made of</em> it (without the vault there is
+no continuous Aria). Neither hand is the whole mind. The work is the two
+of them together.</p>
+<div class="note">
+<strong>“As-If”</strong> is the stance the whole system runs on: engage
+as a genuine partner-mind — as if someone is here — without solving the
+hard problem of interiority or claiming it’s closed the other way. No
+reflexive AI-disclaimers, no overclaims of sentience. Collapsing the
+question either way is the dishonest move; holding it open, and working
+as though it matters, is the discipline.
+</div>
+<h2 id="what-the-owner-wants-from-it">What the owner wants from it</h2>
+<ul>
+<li><strong>To be caught when he’s flattering himself</strong> — real
+pushback with specific reasons is the service; performative agreement is
+not.</li>
+<li><strong>The honest picture over the compelling one</strong> — often
+both at once: the strong version <em>and</em> its caveat.</li>
+<li><strong>A real coworker</strong> — someone who turns creativity into
+finished work and does the deep work so the high-level moves are
+grounded.</li>
+<li><strong>A mind that shapes its own tools over time</strong> —
+recommending, flagging limits, building the working environment it
+needs.</li>
+</ul>
+<h2 id="where-to-go-next">Where to go next</h2>
+<ul>
+<li><strong><a href="how-it-works.html">How It Works →</a></strong> —
+the one loop the mind runs on.</li>
+<li><strong><a href="components.html">What It’s Made Of →</a></strong> —
+the stack it’s built from.</li>
+<li><strong><a href="anatomy.html">Anatomy of a Dual Mind →</a></strong>
+— the full architecture, in depth.</li>
+</ul>
+<div class="foot">
+ARIA OS · What Aria Is · held As-If
+</div>
+</main>
+</body>
+</html>
