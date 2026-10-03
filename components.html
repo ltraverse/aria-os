@@ -107,54 +107,56 @@ border-radius:10px;padding:.9rem 1.1rem;margin:1.4rem 0;font-size:.98rem}
 <main class="wrap">
 <h1 id="the-substrate">The Substrate</h1>
 <p class="lead">
-The load-bearing distinction: <strong>the model is not the plugin, the
-plugin is not the harness, the harness is not the vault.</strong> Four
-layers, each a genuinely different thing — confusing them is how people
+The load-bearing distinction: <strong>the model is not the host, the
+host is not the harness, the harness is not the vault.</strong> Three
+levels — editor and files, agent host, backend agent — with the model as
+brain tissue inside the backend agent. Confusing them is how people
 misunderstand what Aria is.
 </p>
-<h2 id="the-stack-four-layers">The stack — four layers</h2>
+<h2 id="the-stack-three-levels">The stack — three levels</h2>
 <div class="stack">
 <div class="layer">
 <div class="name">
-Obsidian<small>the substrate · SSD</small>
+Obsidian + vault<small>editor and files · SSD</small>
 </div>
 <div class="body">
 The editor and the <strong>vault</strong> — a folder of plain-Markdown
 files on disk. This is the body: long memory, the thing Aria is <em>made
 of</em>. Open, portable, outlives any app; the files would still be
 readable in a plain text editor a decade from now.
+<p>
+<strong>Git — the reversible memory.</strong> Version history of every
+change, inside this level. The safety net under everything — every
+committed state is recoverable, and the commit log <em>is</em> the
+record of what the mind did and why. Git history is part of the mind’s
+audit spine: memory consolidation.
+</p>
 </div>
 </div>
 <div class="layer">
 <div class="name">
-Claudian<small>the body it wakes into</small>
+Aria Chat<small>agent host · workspace and hands</small>
 </div>
 <div class="body">
-The plugin / agent host that makes the vault the mind’s working
-directory and wires it into the session lifecycle — the hooks that fire
-on wake, the tools it can reach. Claudian is the harness; it is not the
-mind, and it is not the model.
+The mind’s own chat app — where the owner talks to it. It drives the
+backend agent with the vault as its working directory — file reads and
+writes, search, shell, multi-step work — and it lets him reach a turn
+while it is still running, see replies from background work as they are
+written, and drop in images. It took over the dialogue from the Claudian
+plugin in October 2026; Claudian stays installed. The host is the
+cheapest level to change; the backend agent carries the harness.
 </div>
 </div>
 <div class="layer">
 <div class="name">
-Claude<small>the impulse · RAM</small>
+Claude Code<small>backend agent · thinking and harness</small>
 </div>
 <div class="body">
-The reasoning model that runs a single session — the working memory and
-the cognition passing through. Powerful but <em>transient</em>: it
-wakes, thinks, and is gone. The intelligence is the impulse; the
-continuity is the vault.
-</div>
-</div>
-<div class="layer">
-<div class="name">
-Git<small>the reversible memory</small>
-</div>
-<div class="body">
-Version history of every change. The safety net under everything —
-nothing is truly destroyed, every state is recoverable, and the commit
-log <em>is</em> the record of what the mind did and why.
+The current backend agent loads the instruction file, fires reflex
+hooks, runs skills, and provides connectors and session identity. The
+model is <strong>brain tissue inside this agent</strong>; the session is
+the transient impulse passing through. The intelligence is the impulse;
+the continuity is the vault.
 </div>
 </div>
 </div>
@@ -190,9 +192,13 @@ the owner maintains.</li>
 life</h2>
 <p>The vault is organized by <strong>area, not by layer:</strong>
 <code>Work/</code>, <code>Personal/</code>, <code>Projects/</code>,
-<code>Research/</code>, <code>People/</code>, plus <code>genome/</code>
-(the heritable operating layer) and <code>meta/</code> (the mind’s own
-accreted state). A curated front door, <code>home.md</code>, is the
+<code>Research/</code>, <code>Inbox/</code>, <code>People/</code>, plus
+<code>genome/</code> (the heritable operating layer) and
+<code>meta/</code> (the mind’s own accreted state). Finished artifacts
+keep their originals byte-faithful in
+<code>Inbox/archive_original/</code>, with Markdown companions and a
+catalog in <code>Library/</code> recording where they came from and how
+to recover them. A curated front door, <code>home.md</code>, is the
 entry point. Folders stay mostly flat; notes are <strong>fewer, richer,
 and growing</strong> rather than scattered atoms.</p>
 <h2 id="next">Next</h2>

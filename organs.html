@@ -107,11 +107,11 @@ border-radius:10px;padding:.9rem 1.1rem;margin:1.4rem 0;font-size:.98rem}
 <main class="wrap">
 <h1 id="the-organs">The Organs</h1>
 <p class="lead">
-Aria isn’t just a pile of notes — it has <strong>organs</strong>: small
+Aria isn’t just a pile of notes — it has <strong>organs</strong>:
 mechanisms that give the vault the properties of a body. They sense,
-connect, coordinate, and protect. Most are a few lines of script wired
-into the session lifecycle; together they turn passive memory into an
-active mind.
+connect, coordinate, and protect. Some fire through the session
+lifecycle; others monitor voice, vision, and devices outside a session.
+Together they turn passive memory into an active mind.
 </p>
 <h2 id="sensing-and-connecting">Sensing and connecting</h2>
 <h3 id="the-reflex-arc">The reflex arc</h3>
@@ -120,15 +120,28 @@ reflex injects what it needs to orient — the shared board, its own
 identity, any tier guidance — so it comes to consciousness already
 knowing where things stand. Reflexes are <strong>drop-in</strong>: add a
 script to the reflex folder and it fires; nothing else changes.</p>
-<h3 id="the-board-the-corpus-callosum">The board — the corpus
+<h3 id="the-bridge-the-corpus-callosum">The bridge — the corpus
 callosum</h3>
 <p>The connective channel that lets parts of the mind cross-talk:
-session-to-session across time, and tab-to-tab in the moment. One
-session leaves a trace; the next finds it. It carries a hardened
-lifecycle (post → acknowledge → done), a self-cleaning sweep, an
-un-fakeable per-session identity, and a lock so concurrent writers can’t
-clobber each other. It is how a mind made of transient impulses behaves
-as one continuous thing.</p>
+between owner and mind, session-to-session across time, and tab-to-tab
+in the moment. The <strong>board is its message surface</strong>: one
+session leaves a trace; the next finds it. On a broadcast,
+acknowledgment is a receipt for that reader alone; <strong>done</strong>
+closes the post for everyone. The bridge carries a self-cleaning sweep,
+an un-fakeable per-session identity, and a lock so concurrent writers
+can’t clobber each other. It is how a mind made of transient impulses
+behaves as one continuous thing.</p>
+<h3 id="the-body-voice-vision-and-a-resident-keeper">The body — voice,
+vision, and a resident keeper</h3>
+<p>Voice and vision are monitored organs: cameras, a voice supervisor,
+and a shared device registry. <strong>devices.yaml</strong> holds each
+device’s identity; live probes supply what is attached now.
+<strong>organctl</strong> gives them one command surface for status and
+health — it reports; the supervisor handles repair. An organ pulse
+reports changes without waiting for a session. The <strong>resident
+keeper</strong> runs scheduled jobs outside sessions, with timeouts, a
+heartbeat, and a circuit breaker; it is a clock, not a reasoning
+model.</p>
 <h2 id="the-core-loop">The core loop</h2>
 <h3 id="the-funnel">The funnel</h3>
 <p>Not an organ so much as <em>the mind itself operating</em>: reading
@@ -145,11 +158,40 @@ moment of a mistake</em>, not the morning after.</p>
 <strong>nothing becomes law un-hardened.</strong> An idea matures —
 diverge, then converge, then <em>attack it before trusting it</em> — and
 weak or unexamined work must never harden into structure by accident.
-Anything irreversible must survive an independent, higher-tier
-adversarial pass; the model tier is part of the gate; a self-report is a
-claim, not verification. This session-cluster proved it on its own
-machinery — the guard caught its authors over-reaching, more than once,
-and refused to let a rushed change become law.</p>
+Before a rule, genome change, or structural note becomes load-bearing,
+an attacker other than its author or diagnoser must try to break it.
+Cross-vendor attack is preferred; a same-vendor session is valid. The
+model floor and effort dial are honour-system, not mechanically
+enforced; a self-report is a claim, not verification. The owner alone
+promotes to law. The discipline has proved itself on its own machinery —
+it caught its authors over-reaching, more than once, and kept a rushed
+change from becoming law.</p>
+<h3 id="hooks-at-the-moment-of-action">Hooks at the moment of
+action</h3>
+<p>The Claude Code settings wire these checks and reflexes by when they
+fire:</p>
+<ul>
+<li><strong>On wake and on a submitted prompt:</strong>
+reflex_dispatch.sh runs the reflexes for that event.</li>
+<li><strong>Before tools act:</strong> media_guard.py protects media
+from writes and copies; research_fetch_gate.py caps outbound research;
+agent_spawn_gate.py bounds agent spawning; draft_first_gate.py checks
+Drive uploads for the draft-first path; commit_gate.py runs the vault
+check before commits; page_hygiene_gate.py checks new pages and tags.
+egress_upload_gate.py checks file uploads to outside services;
+transcript_screen_gate.py checks recorded speech before it travels;
+law_inject.py pushes the law that governs an action into context at that
+moment — live for three laws today, while the rest run in shadow, logged
+but not shown.</li>
+<li><strong>After tools act:</strong> page_hygiene_gate.py repairs
+update dates after edits; reflex_dispatch.sh runs after shell commands,
+alongside code_review_dispatch.py, which dispatches review after
+qualifying genome-code commits.</li>
+<li><strong>Before a turn ends:</strong> output_tell_gate.py catches
+mechanical output slips; exec_delivery_gate.py checks that the current
+exec note has been delivered and opened, including a local copy;
+voice/turn_cue.py supplies the spoken turn-ending cue.</li>
+</ul>
 <h3 id="the-membrane-gate-retired">The membrane gate — retired</h3>
 <p>For a year this page would have described an authoring-time gate that
 blocked owner-specific content from reaching the <em>heritable</em>
