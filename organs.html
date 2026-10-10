@@ -142,6 +142,21 @@ reports changes without waiting for a session. The <strong>resident
 keeper</strong> runs scheduled jobs outside sessions, with timeouts, a
 heartbeat, and a circuit breaker; it is a clock, not a reasoning
 model.</p>
+<h3 id="doorbells-the-wells-and-the-fence-waking-without-the-owner">Doorbells,
+the wells and the fence — waking without the owner</h3>
+<p>A session no longer has to wait for the owner to prompt it. A
+<strong>doorbell</strong> is “when this holds, wake that session with
+this prompt” — a time, a file arriving, a model well with room, or a
+command that succeeds. The keeper checks doorbells every minute and only
+rings; the woken session decides what to do. The <strong>wells
+steward</strong> reads each model plan’s remaining capacity (Claude,
+Codex, Grok), picks which one a kind of work should draw from, and tunes
+that routing as the weekly rhythm becomes clear. The
+<strong>fence</strong> is a short charter of standing goals — keep this
+knowledge base current, clear the inbox, use the wells fully without
+hitting a limit, track what is missed, dream — each run by its own
+doorbell and logged, with proposals and ideas left waiting for the
+owner.</p>
 <h2 id="the-core-loop">The core loop</h2>
 <h3 id="the-funnel">The funnel</h3>
 <p>Not an organ so much as <em>the mind itself operating</em>: reading
@@ -181,12 +196,15 @@ check before commits; page_hygiene_gate.py checks new pages and tags.
 egress_upload_gate.py checks file uploads to outside services;
 transcript_screen_gate.py checks recorded speech before it travels;
 law_inject.py pushes the law that governs an action into context at that
-moment — live for three laws today, while the rest run in shadow, logged
+moment — live for four laws today, while the rest run in shadow, logged
 but not shown.</li>
 <li><strong>After tools act:</strong> page_hygiene_gate.py repairs
 update dates after edits; reflex_dispatch.sh runs after shell commands,
 alongside code_review_dispatch.py, which dispatches review after
 qualifying genome-code commits.</li>
+<li><strong>After a tool call fails:</strong> circuit_breaker.py counts
+failures in a row and trips a frame-lock warning; it never stops the
+turn.</li>
 <li><strong>Before a turn ends:</strong> output_tell_gate.py catches
 mechanical output slips; exec_delivery_gate.py checks that the current
 exec note has been delivered and opened, including a local copy;
