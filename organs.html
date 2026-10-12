@@ -200,9 +200,12 @@ Drive uploads for the draft-first path; commit_gate.py runs the vault
 check before commits; page_hygiene_gate.py checks new pages and tags.
 egress_upload_gate.py checks file uploads to outside services;
 transcript_screen_gate.py checks recorded speech before it travels;
-law_inject.py pushes the law that governs an action into context at that
-moment — live for four laws today, while the rest run in shadow, logged
-but not shown.</li>
+his_words_gate.py checks Slack and Gmail sends and doorbell prompts so
+that words going out in the owner’s name are his own — in shadow for
+now, logging what it would hold without blocking; law_inject.py pushes
+the law that governs an action into context at that moment — live for
+four laws today, while the rest run in shadow, logged but not
+shown.</li>
 <li><strong>After tools act:</strong> page_hygiene_gate.py repairs
 update dates after edits; reflex_dispatch.sh runs after shell commands,
 alongside code_review_dispatch.py, which dispatches review after
@@ -215,6 +218,14 @@ mechanical output slips; exec_delivery_gate.py checks that the current
 exec note has been delivered and opened, including a local copy;
 voice/turn_cue.py supplies the spoken turn-ending cue.</li>
 </ul>
+<h3 id="keys-on-every-local-door">Keys on every local door</h3>
+<p>Every service the mind runs on the Mac — the voice, the presence
+sensor, the work console, Aria OS itself — answers only a caller that
+holds its own secret key, readable by the owner’s account alone. A bare
+request gets turned away, and a client checks that the service it is
+talking to really is the owner’s before handing over the key. This is
+what lets another person’s Aria share the machine without reaching the
+owner’s voice, files or work.</p>
 <h3 id="the-membrane-gate-retired">The membrane gate — retired</h3>
 <p>For a year this page would have described an authoring-time gate that
 blocked owner-specific content from reaching the <em>heritable</em>
