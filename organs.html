@@ -221,7 +221,9 @@ reflex_dispatch.sh runs the reflexes for that event.</li>
 from writes and copies; research_fetch_gate.py caps outbound research;
 agent_spawn_gate.py bounds agent spawning; draft_first_gate.py checks
 Drive uploads for the draft-first path; commit_gate.py runs the vault
-check before commits; page_hygiene_gate.py checks new pages and tags.
+check before commits, and since 2026-10-19 lets a commit through with a
+warning when every failure it finds belongs to another session’s
+uncommitted files; page_hygiene_gate.py checks new pages and tags.
 egress_upload_gate.py checks file uploads to outside services;
 transcript_screen_gate.py checks recorded speech before it travels;
 his_words_gate.py checks Slack and Gmail sends and doorbell prompts so
