@@ -169,20 +169,26 @@ are equal workers — each kind of handed-off work lists both, and it goes
 to whichever has more spare room that would otherwise expire first — the
 unused capacity per hour left before its week resets, not simply the
 lower percentage (when both are tight it falls back to the percentage).
-Claude takes handed-off work only when both workers are tight, and not
-while its own week runs hot — unless no worker can take it at all, when
-the leg goes to Claude rather than waiting. Two owner-set modes widen
-this: while he is away Claude joins as a third worker, picked by room
-and never while hot, and while he holds a free Claude reset every
-handed-off leg burns Claude first, up to a set percentage of its week.
-It also counts the mind’s own helper work inside the owner’s sessions —
-since 2026-10-21 it splits each turn by who sent its prompt, not by
-whose pane it ran in: what the owner typed stays his, a turn started by
-a doorbell, a peer session or the mind’s own finished task is the mind’s
-— and when the owner’s Claude week runs hot it sends that helper work —
-code-writing build agents included — to the worker with room. Codex’s
-frontier model is kept for the must-not-miss review of law; ordinary
-builds and reviews run on its workhorse model. The
+Since 2026-10-25 “before its week resets” means the reset the steward
+has actually watched, not the vendor’s advertised date: it learns each
+plan’s reset rhythm from its own history (Codex’s “week” has been
+closing every one to three days, most of it unspent), and judges spare
+room and run-out against that expected reset — but only once the last
+three resets all came early, so one odd week never shortens a plan’s
+horizon. Claude takes handed-off work only when both workers are tight,
+and not while its own week runs hot — unless no worker can take it at
+all, when the leg goes to Claude rather than waiting. Two owner-set
+modes widen this: while he is away Claude joins as a third worker,
+picked by room and never while hot, and while he holds a free Claude
+reset every handed-off leg burns Claude first, up to a set percentage of
+its week. It also counts the mind’s own helper work inside the owner’s
+sessions — since 2026-10-21 it splits each turn by who sent its prompt,
+not by whose pane it ran in: what the owner typed stays his, a turn
+started by a doorbell, a peer session or the mind’s own finished task is
+the mind’s — and when the owner’s Claude week runs hot it sends that
+helper work — code-writing build agents included — to the worker with
+room. Codex’s frontier model is kept for the must-not-miss review of
+law; ordinary builds and reviews run on its workhorse model. The
 <strong>fence</strong> is a short charter of standing goals — keep this
 knowledge base current, clear the inbox, use the wells fully without
 hitting a limit, track what is missed, dream, and a morning talk (a pane
