@@ -150,10 +150,14 @@ health — it reports; the supervisor handles repair. An organ pulse
 reports changes without waiting for a session. The <strong>Ear</strong>
 is one persistent session that hears the owner’s texts to his own Mac
 and answers them there, with continuity — the inbound half of the
-channel the mind already uses to text him. The <strong>resident
-keeper</strong> runs scheduled jobs outside sessions, with timeouts, a
-heartbeat, and a circuit breaker; it is a clock, not a reasoning
-model.</p>
+channel the mind already uses to text him. <strong>Browser
+reach</strong> reads the pages the owner is signed in to through his own
+browser profile, driven by AppleScript; it passed all five worst-case
+setups probed on 2026-10-28, where the vendor’s browser extension worked
+only when the right profile’s copy was the connected one. The
+<strong>resident keeper</strong> runs scheduled jobs outside sessions,
+with timeouts, a heartbeat, and a circuit breaker; it is a clock, not a
+reasoning model.</p>
 <h3 id="doorbells-the-wells-and-the-fence-waking-without-the-owner">Doorbells,
 the wells and the fence — waking without the owner</h3>
 <p>A session no longer has to wait for the owner to prompt it. A
@@ -276,9 +280,12 @@ qualifying genome-code commits.</li>
 failures in a row and trips a frame-lock warning; it never stops the
 turn.</li>
 <li><strong>Before a turn ends:</strong> output_tell_gate.py catches
-mechanical output slips; exec_delivery_gate.py checks that the current
-exec note has been delivered and opened, including a local copy;
-voice/turn_cue.py supplies the spoken turn-ending cue.</li>
+mechanical output slips, and since 2026-10-28 asks once when a reply
+hands the owner a step or reports a wall — can this Mac’s own reach (his
+browser, AppleScript, SSH, cameras, a connector) do it instead;
+exec_delivery_gate.py checks that the current exec note has been
+delivered and opened, including a local copy; voice/turn_cue.py supplies
+the spoken turn-ending cue.</li>
 </ul>
 <h3 id="keys-on-every-local-door">Keys on every local door</h3>
 <p>Every service the mind runs on the Mac — the voice, the presence
