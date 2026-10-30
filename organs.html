@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
   <meta charset="utf-8" />
-  <meta name="generator" content="pandoc 3.10" />
+  <meta name="generator" content="pandoc 3.13" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
   <title>The Organs · ARIA OS</title>
   <style>
@@ -23,7 +23,6 @@ width: 0.8em;
 margin: 0 0.8em 0.2em -1.6em;
 vertical-align: middle;
 }
-.display.math{display: block; text-align: center; margin: 0.5rem auto;}
 </style>
   <style type="text/css">
 
@@ -157,7 +156,10 @@ setups probed on 2026-10-28, where the vendor’s browser extension worked
 only when the right profile’s copy was the connected one. The
 <strong>resident keeper</strong> runs scheduled jobs outside sessions,
 with timeouts, a heartbeat, and a circuit breaker; it is a clock, not a
-reasoning model.</p>
+reasoning model. Since 2026-10-30 it also keeps the mind’s own batch GPU
+work — picture draws, upscales, scripted renders — at background
+priority, moving any job started without it, so the owner’s mouse and
+keys never lag behind a draw.</p>
 <h3 id="doorbells-the-wells-and-the-fence-waking-without-the-owner">Doorbells,
 the wells and the fence — waking without the owner</h3>
 <p>A session no longer has to wait for the owner to prompt it. A
@@ -208,17 +210,19 @@ with proposals and ideas left waiting for the owner. Underneath the
 goals the fence watches the body itself — services, the keeper, tests,
 doorbells, every open session and, every five minutes, the memory its
 own processes hold (a leak, a process far too big, a test game left
-running alone, the Mac running short; since 2026-10-22 it texts the
-owner when an app server keeps restarting in a loop, or when the keeper
-itself has stopped so no doorbell can ring) — and since 2026-10-16 it
-also tidies up after the mind: a finished doorbell pane ends itself
-(never one the owner or another session spoke into, never a talk pane,
-and its transcript is kept; if its last reply ended on a question, that
-question is carried to the morning talk), files left uncommitted for
-over a day are traced to the session that wrote them, and a helper that
-died is named with what it was waiting on. Since 2026-10-19 the sessions
-carry the same discipline themselves: each ends every pane it opened
-once that work is done, and none closes while one is still open.</p>
+running alone, the Mac running short; since 2026-10-30 also free space
+on the Mac’s own drive and the external drive that holds media, backups
+and models; since 2026-10-22 it texts the owner when an app server keeps
+restarting in a loop, or when the keeper itself has stopped so no
+doorbell can ring) — and since 2026-10-16 it also tidies up after the
+mind: a finished doorbell pane ends itself (never one the owner or
+another session spoke into, never a talk pane, and its transcript is
+kept; if its last reply ended on a question, that question is carried to
+the morning talk), files left uncommitted for over a day are traced to
+the session that wrote them, and a helper that died is named with what
+it was waiting on. Since 2026-10-19 the sessions carry the same
+discipline themselves: each ends every pane it opened once that work is
+done, and none closes while one is still open.</p>
 <h2 id="the-core-loop">The core loop</h2>
 <h3 id="the-funnel">The funnel</h3>
 <p>Not an organ so much as <em>the mind itself operating</em>: reading
