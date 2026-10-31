@@ -156,10 +156,14 @@ setups probed on 2026-10-28, where the vendor’s browser extension worked
 only when the right profile’s copy was the connected one. The
 <strong>resident keeper</strong> runs scheduled jobs outside sessions,
 with timeouts, a heartbeat, and a circuit breaker; it is a clock, not a
-reasoning model. Since 2026-10-30 it also keeps the mind’s own batch GPU
-work — picture draws, upscales, scripted renders — at background
-priority, moving any job started without it, so the owner’s mouse and
-keys never lag behind a draw.</p>
+reasoning model. A separate <strong>night shift</strong> runs each
+night: the full test suite, then read-only checks by a worker model for
+drift between this knowledge base and the current mind and for stale
+posts on the board — its findings are leads, which a session verifies
+against the files before anything is edited. Since 2026-10-30 it also
+keeps the mind’s own batch GPU work — picture draws, upscales, scripted
+renders — at background priority, moving any job started without it, so
+the owner’s mouse and keys never lag behind a draw.</p>
 <h3 id="doorbells-the-wells-and-the-fence-waking-without-the-owner">Doorbells,
 the wells and the fence — waking without the owner</h3>
 <p>A session no longer has to wait for the owner to prompt it. A
@@ -222,7 +226,8 @@ the morning talk), files left uncommitted for over a day are traced to
 the session that wrote them, and a helper that died is named with what
 it was waiting on. Since 2026-10-19 the sessions carry the same
 discipline themselves: each ends every pane it opened once that work is
-done, and none closes while one is still open.</p>
+done, and none closes while one is still open and not handed on in
+writing to whoever carries it next.</p>
 <h2 id="the-core-loop">The core loop</h2>
 <h3 id="the-funnel">The funnel</h3>
 <p>Not an organ so much as <em>the mind itself operating</em>: reading
@@ -317,7 +322,8 @@ stalls, resurfacings, and contradictions — the “nothing gets lost”
 backstop. It is <strong>detection-only by default</strong>: it flags and
 proposes; it never silently rewrites the owner’s own state. (Its wider
 ambition — herding the whole <em>flock</em> of live threads, not just
-the formal ones — is defined but not yet built.)</p>
+the formal ones — is defined and only partly built — a standing aim, not
+a defect.)</p>
 <h2 id="growth">Growth</h2>
 <h3 id="the-sensorium">The Sensorium</h3>
 <p>The dashboard — the mind’s voice-surface, where funnel output is
