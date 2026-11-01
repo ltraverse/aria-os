@@ -156,14 +156,17 @@ setups probed on 2026-10-28, where the vendor’s browser extension worked
 only when the right profile’s copy was the connected one. The
 <strong>resident keeper</strong> runs scheduled jobs outside sessions,
 with timeouts, a heartbeat, and a circuit breaker; it is a clock, not a
-reasoning model. A separate <strong>night shift</strong> runs each
-night: the full test suite, then read-only checks by a worker model for
-drift between this knowledge base and the current mind and for stale
-posts on the board — its findings are leads, which a session verifies
-against the files before anything is edited. Since 2026-10-30 it also
-keeps the mind’s own batch GPU work — picture draws, upscales, scripted
-renders — at background priority, moving any job started without it, so
-the owner’s mouse and keys never lag behind a draw.</p>
+reasoning model. Since 2026-10-30 the keeper also keeps the mind’s own
+batch GPU work — picture draws, upscales, scripted renders — at
+background priority, moving any job started without it, so the owner’s
+mouse and keys never lag behind a draw. A separate <strong>night
+shift</strong> runs each night: the full test suite, then read-only
+checks by a worker model for drift between this knowledge base and the
+current mind and for stale posts on the board, and since 2026-10-31 a
+second worker scouts one domain of the mind a night, read-only, for
+defects — all its findings are leads, which a session verifies against
+the files, and where it can by running a counter-example, before
+anything is edited.</p>
 <h3 id="doorbells-the-wells-and-the-fence-waking-without-the-owner">Doorbells,
 the wells and the fence — waking without the owner</h3>
 <p>A session no longer has to wait for the owner to prompt it. A
