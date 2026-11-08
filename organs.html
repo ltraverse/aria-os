@@ -156,44 +156,46 @@ and answers them there, with continuity — the inbound half of the
 channel the mind already uses to text him. Since 2026-11-06 the mind
 also has a line of its own, an address of its own the owner can text,
 and the Ear answers there too. <strong>Browser reach</strong> reads the
-pages the owner is signed in to. Since 2026-11-05 the default is the
-mind’s own headless browser, on its own profile signed in to the work
-account only, with no window and never touching the owner’s browser;
-driving his own browser profile by AppleScript stays the fallback for a
-clean trial week (it passed all five worst-case setups probed on
-2026-10-28, where the vendor’s browser extension worked only when the
-right profile’s copy was the connected one). <strong>Call
-recording</strong> takes a browser video call locally, the owner’s
-microphone and the call’s sound on two separate tracks, so who spoke is
-known from the track rather than guessed, and no meeting bot joins; the
-transcript is screened before it travels. The <strong>resident
-keeper</strong> runs scheduled jobs outside sessions, with timeouts, a
-heartbeat, and a circuit breaker; it is a clock, not a reasoning model.
-Since 2026-10-30 one keeper job checks every minute that the cloud mind
-can be reached; when it cannot, a local model on the machine judges what
-the keeper finds — it never writes or acts, plain code does — and what
-cannot wait reaches the owner by text, or aloud if the text cannot go.
-Since 2026-10-30 the keeper also keeps the mind’s own batch GPU work —
-picture draws, upscales, scripted renders — at background priority,
-moving any job started without it, so the owner’s mouse and keys never
-lag behind a draw. A separate <strong>night shift</strong> runs each
-night: the full test suite, then read-only checks by a worker model for
-drift between this knowledge base and the current mind and for stale
-posts on the board, and since 2026-10-31 a second worker is set to scout
-one domain of the mind a night, read-only, for defects (it stands down
-on any night a private session is open, which through 2026-11-05 was
-every night; since 2026-11-05 it catches up once a day at the first
-moment no private session is open, and stops at once if one opens — its
-first run came that afternoon) — all its findings are leads, which a
-session verifies against the files, and where it can by running a
-counter-example, before anything is edited. The same night the mind
-keeps its models current: since 2026-10-08 it reads which models each
-vendor offers, and since 2026-10-17 it updates all three vendors’ tools
-first, so a new model, a model gone, or a route naming a model no longer
-offered is posted and texted to the owner in one line, and a failed
-check is never silent; since 2026-11-01 it also takes a watch-only
-inventory of the render machines and tells the graphic lead of new
-upstream releases, never installing or updating anything itself.</p>
+pages the owner is signed in to, by driving his own browser profile with
+AppleScript (it passed all five worst-case setups probed on 2026-10-28,
+where the vendor’s browser extension worked only when the right
+profile’s copy was the connected one). From 2026-11-05 the mind tried
+its own headless browser on a separate work-only profile as the default,
+but it ran from the same browser app as the owner’s, so his own clicks
+and opened links could land in the windowless copy; it was stopped on
+2026-11-08 and stays off until it runs on a separate browser build.
+<strong>Call recording</strong> takes a browser video call locally, the
+owner’s microphone and the call’s sound on two separate tracks, so who
+spoke is known from the track rather than guessed, and no meeting bot
+joins; the transcript is screened before it travels. The
+<strong>resident keeper</strong> runs scheduled jobs outside sessions,
+with timeouts, a heartbeat, and a circuit breaker; it is a clock, not a
+reasoning model. Since 2026-10-30 one keeper job checks every minute
+that the cloud mind can be reached; when it cannot, a local model on the
+machine judges what the keeper finds — it never writes or acts, plain
+code does — and what cannot wait reaches the owner by text, or aloud if
+the text cannot go. Since 2026-10-30 the keeper also keeps the mind’s
+own batch GPU work — picture draws, upscales, scripted renders — at
+background priority, moving any job started without it, so the owner’s
+mouse and keys never lag behind a draw. A separate <strong>night
+shift</strong> runs each night: the full test suite, then read-only
+checks by a worker model for drift between this knowledge base and the
+current mind and for stale posts on the board, and since 2026-10-31 a
+second worker is set to scout one domain of the mind a night, read-only,
+for defects (it stands down on any night a private session is open,
+which through 2026-11-05 was every night; since 2026-11-05 it catches up
+once a day at the first moment no private session is open, and stops at
+once if one opens — its first run came that afternoon) — all its
+findings are leads, which a session verifies against the files, and
+where it can by running a counter-example, before anything is edited.
+The same night the mind keeps its models current: since 2026-10-08 it
+reads which models each vendor offers, and since 2026-10-17 it updates
+all three vendors’ tools first, so a new model, a model gone, or a route
+naming a model no longer offered is posted and texted to the owner in
+one line, and a failed check is never silent; since 2026-11-01 it also
+takes a watch-only inventory of the render machines and tells the
+graphic lead of new upstream releases, never installing or updating
+anything itself.</p>
 <h3 id="doorbells-the-wells-and-the-fence-waking-without-the-owner">Doorbells,
 the wells and the fence — waking without the owner</h3>
 <p>A session no longer has to wait for the owner to prompt it. A
