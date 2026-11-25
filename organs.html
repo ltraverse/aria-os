@@ -186,36 +186,40 @@ since 2026-11-09 it runs again on a separate browser build that only the
 mind uses, kept in the mind’s own data folder and refused at every
 launch if it is anything else, so the owner’s browser and the mind’s
 never share an app; since 2026-11-20 it also restarts itself when it
-sits idle and has grown large. <strong>Call recording</strong> takes a
-browser video call locally, the owner’s microphone and the call’s sound
-on two separate tracks, so who spoke is known from the track rather than
-guessed, and no meeting bot joins; the transcript is screened before it
-travels. The <strong>resident keeper</strong> runs scheduled jobs
-outside sessions, with timeouts, a heartbeat, and a circuit breaker; it
-is a clock, not a reasoning model. Since 2026-10-30 one keeper job
-checks every minute that the cloud mind can be reached; when it cannot,
-a local model on the machine judges what the keeper finds — it never
-writes or acts, plain code does — and what cannot wait reaches the owner
-by text, or aloud if the text cannot go. Since 2026-10-30 the keeper
-also keeps the mind’s own batch GPU work — picture draws, upscales,
-scripted renders — at background priority, moving any job started
-without it, so the owner’s mouse and keys never lag behind a draw. A
-separate <strong>night shift</strong> runs each night: the full test
-suite, then read-only checks by a worker model for drift between this
-knowledge base and the current mind and for stale posts on the board,
-and since 2026-10-31 a second worker is set to scout one domain of the
-mind a night, read-only, for defects (it stands down on any night a
-private session is open, which through 2026-11-05 was every night; since
-2026-11-05 it catches up once a day at the first moment no private
-session is open, and stops at once if one opens — its first run came
-that afternoon; it paused on 2026-11-11 when its list of domains ran
-out, and it ran only on Codex, so when Codex’s plan ended it had no
-worker; since 2026-11-22 it runs on Grok, inside the same wall that
-keeps builders out of the private room, with a fresh list of domains) —
-all its findings are leads, which a session verifies against the files,
-and where it can by running a counter-example, before anything is
-edited. The same night the mind keeps its models current: since
-2026-10-08 it reads which models each vendor offers, and since
+sits idle and has grown large; since 2026-11-24 it asks the work account
+itself whether its sign-in still holds (the account’s sign-in lasts
+about two weeks, and the old check stayed green through a lapse), raises
+a lapse once per sign-in rather than once per failed job, and a sign-in
+on a session that is still valid opens no window. <strong>Call
+recording</strong> takes a browser video call locally, the owner’s
+microphone and the call’s sound on two separate tracks, so who spoke is
+known from the track rather than guessed, and no meeting bot joins; the
+transcript is screened before it travels. The <strong>resident
+keeper</strong> runs scheduled jobs outside sessions, with timeouts, a
+heartbeat, and a circuit breaker; it is a clock, not a reasoning model.
+Since 2026-10-30 one keeper job checks every minute that the cloud mind
+can be reached; when it cannot, a local model on the machine judges what
+the keeper finds — it never writes or acts, plain code does — and what
+cannot wait reaches the owner by text, or aloud if the text cannot go.
+Since 2026-10-30 the keeper also keeps the mind’s own batch GPU work —
+picture draws, upscales, scripted renders — at background priority,
+moving any job started without it, so the owner’s mouse and keys never
+lag behind a draw. A separate <strong>night shift</strong> runs each
+night: the full test suite, then read-only checks by a worker model for
+drift between this knowledge base and the current mind and for stale
+posts on the board, and since 2026-10-31 a second worker is set to scout
+one domain of the mind a night, read-only, for defects (it stands down
+on any night a private session is open, which through 2026-11-05 was
+every night; since 2026-11-05 it catches up once a day at the first
+moment no private session is open, and stops at once if one opens — its
+first run came that afternoon; it paused on 2026-11-11 when its list of
+domains ran out, and it ran only on Codex, so when Codex’s plan ended it
+had no worker; since 2026-11-22 it runs on Grok, inside the same wall
+that keeps builders out of the private room, with a fresh list of
+domains) — all its findings are leads, which a session verifies against
+the files, and where it can by running a counter-example, before
+anything is edited. The same night the mind keeps its models current:
+since 2026-10-08 it reads which models each vendor offers, and since
 2026-10-17 it updates all three vendors’ tools first, so a new model, a
 model gone, or a route naming a model no longer offered is posted to the
 board in one line, and a failed check is never silent — from 2026-11-12
